@@ -6,7 +6,7 @@ body{
     background-attachment: fixed;
     bavkground-size: cover;
 }
-form{
+/* form{
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 200px;
@@ -15,7 +15,7 @@ form{
     padding-bottom: 0px;
     padding-left: 300px;
     width: max-content;
-    height: 10px;
+    height: 10px; */
     
     background-color: transparent;
 }
