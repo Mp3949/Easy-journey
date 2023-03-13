@@ -4,6 +4,7 @@ body{
     /* background-size: cover; */
     padding: 0px;
     background-attachment: fixed;
+    background-size: cover;
 }
 form{
     margin-top: 0px;
@@ -79,14 +80,14 @@ hr{
 
 
 .heading1{
-    text-align: left;
+    text-align: center;
     /* text-decoration: double; */
     color: rgb(0, 0, 0);
     font-size: xx-large;
     
 }
 .con1{
-    text-align: left;
+    text-align: center;
     font-size: larger;
     margin-top: 10px;
     border-radius: 15px;
