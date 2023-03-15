@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy journey-login</title>
+ 
+        <link rel="stylesheet" href="login form.css"> 
+</head>
+<body background="images/travel1.jpg" class="back" >
+    
+    <!-- <video autoplay muted loop id="myVideo">
+        <source src="images/train.mp4" type="video/mp4">
+      </video> -->
+    
+    <div class="con1">
+        
+        <h1 id="heading">Time to Travel....</h1>
+        <h1 class="heading1"><b><u>Login to your account</u></b></h1>
+        <P><label for="Email"class="label"><b>Email-id</b></label><br>
+            <input type="email" placeholder="Email-id" name="Username" required id="login-Email" class="box">
+        </P>
+       <p><label for="Email"class="label"><b>Email-id</b></label><br> 
+        <input type="email" placeholder="Enter Email-id" name="Username" required id="Email" class="box">
+        </p>
+       <p><label for="Password" class="label"><b>Password</b></label><br>
+        <input type="password" placeholder="Enter Password" name="Password" required id="l-Password" class="box">
+    </p>
+         <p><input type="password" placeholder="Confirm Password" name="Password" id="c-[assword" required class="box">
+        </p> 
+         
+        <br>
+            <button id="bt1" type="submit" class="btn" >log-in</button>
+            <button id="bt2" type="reset" class="btn" >Cancel</button> 
+            <hr>
+            if you don't have an account.<a href="sign up.html"  type="menu" class="btn" ><b>sign up</b></a>
+          </div>
+          <div><button id="bt3" class="btn">Log-out</button></div>
+    
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
+      import  {getAuth,  signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js"; 
+    
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyA1JC1sgLVOw1r9x3__54zygKwx5g2Pc7c",
+        authDomain: "esay-journey.firebaseapp.com",
+        projectId: "esay-journey",
+        storageBucket: "esay-journey.appspot.com",
+        messagingSenderId: "317641797157",
+        appId: "1:317641797157:web:e6c86c10c5991fb88d59cc",
+        measurementId: "G-566EH95T4P"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const auth = getAuth(app);
+
+      document.getElementById("bt1").addEventListener("click", function(){
+        var email = document.getElementById("login-Email").value;
+        var password = document.getElementById("l-Password").value;
+        signInWithEmailAndPassword(auth , email, password)
+        .then((usercredential) =>{
+
+        const user = userCredential.user;
+        console.log(user);
+        alert(user,email+"Login Successfully..!!");
+        
+      })
+      .catch((error) => {
+            const errrorcode =error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage);
+            alert(error);
+    });
+  })
+
+
+  // log out code start
+  document.getAnimations("bt3").addEventListener("click", function(){
+    signOut(auth).then(() => {
+      // signout succesfully
+      console.log('Sign-Out successful');
+      alert('Sign-Out successful');
+      document.getElementById('bt3').style.display = 'none';
+
+    }).catch((error) => {
+      // an error happened
+      console.log('An error happened.');
+    });
+  })
+    </script>
+</body>
+</html>
